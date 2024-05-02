@@ -1,0 +1,4 @@
+project(subdemo)
+
+# add_subdirectory(src)
+add_subdirectory(apps)
