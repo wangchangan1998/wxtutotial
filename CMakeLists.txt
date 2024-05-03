@@ -17,11 +17,15 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # FindXX.cmake
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
+#
+# set(CMAKE_BUILD_TYPE Release)
+
 # set(wxWidgetsComponentsRequired media xrc richtext propgrid ribbon stc html aui core net xml base)
 # Note that for MinGW users the order of libs is important!
 find_package(wxWidgets 3.2 REQUIRED COMPONENTS core base)
 if(wxWidgets_FOUND)
   include(${wxWidgets_USE_FILE})
+  # message("打印usefile"${wxWidgets_LIBRARIES})
   # and for each of your dependent executable/library targets:
 #   target_link_libraries(<YourTarget> ${wxWidgets_LIBRARIES})
 endif()
@@ -32,4 +36,6 @@ project(minimal)
 # Define a variable containing a list of source files for the project
 # add_subdirectory(apps)
 # add_subdirectory(src)
-add_subdirectory(subdemo)
+add_subdirectory(subdemo EXCLUDE_FROM_ALL)
+add_subdirectory(demo1)
+
